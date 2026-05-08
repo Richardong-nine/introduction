@@ -58,7 +58,7 @@
   .step h4{font-size:14px!important;margin:6px 0 6px 44px!important}
   .step p{font-size:12px!important}
   /* Toast */
-  .nav-toast{bottom:12px!important;padding:8px 18px!important;font-size:12px!important}
+  .nav-toast{bottom:24px!important;padding:8px 18px!important;font-size:12px!important}
 }
 
 /* ===== TABLET ===== */
@@ -340,15 +340,20 @@
 <script src="html-ppt/assets/runtime.js"></script>
 <script>
 (function(){
-  /* touch swipe */
-  var tx0=0,ty0=0;
+  /* touch swipe with damping */
+  var tx0=0,ty0=0,swiping=false;
   document.addEventListener('touchstart',function(e){tx0=e.changedTouches[0].clientX;ty0=e.changedTouches[0].clientY},{passive:true});
   document.addEventListener('touchend',function(e){
+    if(swiping) return;
     var dx=e.changedTouches[0].clientX-tx0,dy=e.changedTouches[0].clientY-ty0;
-    if(Math.abs(dy)>50&&Math.abs(dy)>Math.abs(dx)){
+    if(Math.abs(dy)>80&&Math.abs(dy)>Math.abs(dx)){
+      swiping=true;
       document.dispatchEvent(new KeyboardEvent('keydown',{key:dy<0?'ArrowRight':'ArrowLeft',bubbles:true}));
-    }else if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
+      setTimeout(function(){swiping=false},600);
+    }else if(Math.abs(dx)>80&&Math.abs(dx)>Math.abs(dy)){
+      swiping=true;
       document.dispatchEvent(new KeyboardEvent('keydown',{key:dx<0?'ArrowRight':'ArrowLeft',bubbles:true}));
+      setTimeout(function(){swiping=false},600);
     }
   },{passive:true});
 
@@ -362,10 +367,38 @@
   t.innerHTML='<div class="fill"></div><div class="txt">'+(isMobile?'上下滑动翻页':'按 ← → 翻页')+'</div>';
   document.body.appendChild(t);
   var fill=t.querySelector('.fill');
+  var txt=t.querySelector('.txt');
+  function changeTheme(){
+    var base=document.body.getAttribute("data-theme-base")||"html-ppt/assets/themes/";
+    var themes=document.body.getAttribute("data-themes").split(",").map(function(s){return s.trim()}).filter(Boolean);
+    var current=document.documentElement.getAttribute("data-theme");
+    var pool=themes.filter(function(t){return t!==current});
+    var pick=pool[Math.floor(Math.random()*pool.length)];
+    sessionStorage.setItem("html-ppt-theme",pick);
+    document.documentElement.setAttribute("data-theme",pick);
+    var link=document.getElementById("theme-link");
+    if(link) link.href=base+pick+".css";
+    document.querySelectorAll(".dim2").forEach(function(el){el.textContent=pick});
+  }
+  function goHome(){
+    changeTheme();
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Home',bubbles:true}));
+  }
   function update(){
     var cur=document.querySelector('.slide.is-active');
     var idx=Array.prototype.indexOf.call(slides,cur);
     fill.style.width=(idx<1?0:(idx/(total-1)*100))+'%';
+    if(idx===total-1){
+      t.style.cursor='pointer';
+      t.style.pointerEvents='auto';
+      txt.textContent='回到首页';
+      t.onclick=goHome;
+    }else{
+      t.style.cursor='pointer';
+      t.style.pointerEvents='auto';
+      txt.textContent=isMobile?'上下滑动翻页':'按 ← → 翻页';
+      t.onclick=changeTheme;
+    }
   }
   update();
   requestAnimationFrame(function(){t.classList.add("show")});
