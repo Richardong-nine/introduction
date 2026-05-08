@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="corporate-clean">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>董剑铭（初九）· 个人介绍</title>
+<link rel="stylesheet" href="html-ppt/assets/fonts.css">
+<link rel="stylesheet" href="html-ppt/assets/base.css">
+<link rel="stylesheet" id="theme-link" href="html-ppt/assets/themes/corporate-clean.css">
+<link rel="stylesheet" href="html-ppt/assets/animations/animations.css">
+<style>
+.tl{position:relative;margin-top:40px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:48px;height:2px;background:var(--border)}
+.tl .row{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.tl .item{position:relative;padding-top:80px;text-align:center}
+.tl .dot{position:absolute;top:36px;left:50%;transform:translateX(-50%);width:24px;height:24px;border-radius:50%;background:var(--accent);border:4px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.tl .year{font-size:14px;color:var(--text-3);letter-spacing:.12em;text-transform:uppercase;position:absolute;top:0;left:0;right:0;font-weight:600}
+.tl h4{font-size:18px}
+.tl p{font-size:13px;color:var(--text-2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px}
+.step{position:relative;padding:24px 26px 20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}
+.step .num{position:absolute;top:12px;left:12px;width:40px;height:40px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;box-shadow:var(--shadow)}
+.step h4{margin:8px 0 8px 52px;font-size:17px}
+.step p{font-size:13px;color:var(--text-2);line-height:1.6}
+.nav-toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:10000;padding:10px 28px;border-radius:var(--radius,8px);background:var(--surface,#fff);color:var(--text-2,#666);font-size:14px;box-shadow:var(--shadow,0 4px 24px rgba(0,0,0,.12));border:1px solid var(--border,#e0e0e0);opacity:0;transition:opacity .4s ease;pointer-events:none;white-space:nowrap;overflow:hidden}
+.nav-toast.show{opacity:1}
+.nav-toast .fill{position:absolute;top:0;left:0;bottom:0;background:var(--accent);opacity:.12;transition:width .35s ease;border-radius:var(--radius,8px) 0 0 var(--radius,8px)}
+.nav-toast .txt{position:relative;z-index:1;font-weight:700}
+.progress-bar{display:none!important}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .slide{padding:36px 24px!important}
+  .h1{font-size:36px!important}
+  .h2{font-size:28px!important}
+  h3,.h3{font-size:22px!important}
+  h4,.h4{font-size:17px!important}
+  .lede{font-size:15px!important}
+  .kicker{font-size:12px!important}
+  .eyebrow{font-size:11px!important}
+  .g2,.g3,.g4{grid-template-columns:1fr!important}
+  .pill{font-size:11px;padding:3px 10px}
+  .card{padding:18px 16px!important}
+  .deck-header{top:16px;left:16px;right:16px;font-size:10px!important}
+  .deck-footer{bottom:16px;left:16px;right:16px;font-size:10px!important}
+  /* Timeline → vertical */
+  .tl{margin-top:20px!important}
+  .tl::before{display:none!important}
+  .tl .row{grid-template-columns:1fr!important;gap:0!important}
+  .tl .item{padding-top:0!important;padding-left:40px!important;text-align:left!important;border-left:2px solid var(--accent);padding-bottom:20px}
+  .tl .dot{top:0!important;left:-9px!important;transform:none!important;width:16px!important;height:16px!important;border-width:3px!important}
+  .tl .year{position:relative!important;top:auto!important;left:auto!important;right:auto!important;font-size:12px!important;margin-bottom:4px}
+  .tl h4{font-size:15px!important;margin:0 0 4px}
+  .tl p{font-size:12px!important}
+  /* Steps → single column */
+  .steps{grid-template-columns:1fr!important;gap:14px!important}
+  .step{padding:16px 18px!important}
+  .step .num{top:10px!important;left:10px!important;width:32px!important;height:32px!important;font-size:14px!important;border-radius:6px!important}
+  .step h4{font-size:14px!important;margin:6px 0 6px 44px!important}
+  .step p{font-size:12px!important}
+  /* Toast */
+  .nav-toast{bottom:12px!important;padding:8px 18px!important;font-size:12px!important}
+}
+
+/* ===== TABLET ===== */
+@media(min-width:769px) and (max-width:1024px){
+  .slide{padding:48px 48px!important}
+  .h1{font-size:52px!important}
+  .h2{font-size:38px!important}
+  .g3,.g4{grid-template-columns:repeat(2,1fr)!important}
+  .tl .row{grid-template-columns:repeat(2,1fr)!important;gap:16px!important}
+  .steps{grid-template-columns:repeat(2,1fr)!important}
+  .step .num{width:36px!important;height:36px!important;font-size:16px!important;top:12px!important;left:12px!important;border-radius:7px!important}
+}
+</style>
+</head>
+<body data-themes="corporate-clean,aurora,tokyo-night,catppuccin-mocha,editorial-serif,swiss-grid" data-theme-base="html-ppt/assets/themes/">
+<div class="deck">
+
+  <!-- 1. Cover -->
+  <section class="slide" data-title="封面">
+    <div class="deck-header"><span class="eyebrow">Team Introduction · 2026</span><span class="eyebrow">杭州</span></div>
+    <div class="anim-stagger-list">
+      <p class="kicker">Hello · 大家好</p>
+      <h1 class="h1 anim-fade-up" data-anim="fade-up">
+        我是<span class="gradient-text">初九</span><br><span style="font-size:0.55em;color:var(--text-2)">董剑铭 · 产品经理 · INTJ</span>
+      </h1>
+      <p class="lede">8 年产品经验 · 专注跨境电商 WMS / SCM / SaaS · 逻辑驱动 · 数据支撑</p>
+      <div class="row wrap mt-l">
+        <span class="pill pill-accent">WMS 仓储系统</span>
+        <span class="pill">SCM 供应链</span>
+        <span class="pill">跨境电商 SaaS</span>
+        <span class="pill">0→1 产品搭建</span>
+      </div>
+    </div>
+    <div class="deck-footer"><span class="dim2">董剑铭 · 2026</span><span class="slide-number" data-current="1" data-total="11"></span></div>
+  </section>
+
+  <!-- 2. About Me -->
+  <section class="slide" data-title="关于我">
+    <p class="kicker">About · 关于我</p>
+    <h2 class="h2">逻辑驱动，数据说话</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h3>基本信息</h3>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2.2;color:var(--text-2)">
+          <li>— <b style="color:var(--text-1)">姓名</b>：董剑铭（初九）</li>
+          <li>— <b style="color:var(--text-1)">坐标</b>：杭州</li>
+          <li>— <b style="color:var(--text-1)">学历</b>：浙江工业大学 · 数字媒体技术</li>
+          <li>— <b style="color:var(--text-1)">经验</b>：8 年产品经理（2017 至今）</li>
+          <li>— <b style="color:var(--text-1)">MBTI</b>：INTJ（建筑师型）</li>
+        </ul>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h3>性格与风格</h3>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2.2;color:var(--text-2)">
+          <li>— <b style="color:var(--text-1)">决策风格</b>：逻辑驱动、数据支撑、理性客观</li>
+          <li>— <b style="color:var(--text-1)">沟通方式</b>：直接高效、注重结果、避免情绪化</li>
+          <li>— <b style="color:var(--text-1)">工作习惯</b>：提前规划、注重细节、追求完美</li>
+          <li>— <b style="color:var(--text-1)">优先级判断</b>：RICE 模型评估，业务价值导向</li>
+          <li>— <b style="color:var(--text-1)">职业价值观</b>：客户导向、技术驱动、持续学习</li>
+        </ul>
+      </div>
+    </div>
+    <div class="notes">让团队快速了解我是谁。INTJ 型人格意味着我重视逻辑和效率，喜欢用数据说话。</div>
+  </section>
+
+  <!-- 3. Career Timeline -->
+  <section class="slide" data-title="职业历程">
+    <p class="kicker">Journey · 职业历程</p>
+    <h2 class="h2">从 C 端增长到 B 端深耕</h2>
+    <div class="tl">
+      <div class="row anim-stagger-list" data-anim-target>
+        <div class="item"><div class="year">2017 – 2020</div><div class="dot"></div><h4>早稻科技</h4><p>支付宝小程序核心负责人<br>信用租赁 · 用户增长 · 数据驱动</p></div>
+        <div class="item"><div class="year">2021 – 2022</div><div class="dot"></div><h4>促聚科技</h4><p>WMS / SCM 产品负责人<br>CJdropshipping · 美国市场</p></div>
+        <div class="item"><div class="year">2022 – 2024</div><div class="dot"></div><h4>直行便</h4><p>WMS & TMS 产品经理<br>日本市场 · 仓储效能提升</p></div>
+        <div class="item"><div class="year">2024 – 至今</div><div class="dot"></div><h4>端点科技</h4><p>ShipperGrid 产品线<br>海外仓 SaaS · 战略转型</p></div>
+      </div>
+    </div>
+    <div class="notes">四段经历，从 C 端小程序增长运营，逐步转向 B 端 WMS/SCM 深耕，最终聚焦跨境电商 SaaS。</div>
+  </section>
+
+  <!-- 4. Core Methodology -->
+  <section class="slide" data-title="产品方法论">
+    <p class="kicker">Methodology · 我的产品方法论</p>
+    <h2 class="h2">四套方法论，解决四类问题</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h4>「水位-流速」建模法</h4>
+        <p class="dim mt-s">仓库定位为供应链缓冲池。核心公式：WMS 效率 = f(入库波动性, 库存深度, 出库波动性)。</p>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h4>「乐高积木」架构</h4>
+        <p class="dim mt-s">物理动作数据化，决策逻辑规则化（If-Then 策略引擎），实现插拔式设计。</p>
+      </div>
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h4>「帕累托路径」设计</h4>
+        <p class="dim mt-s">80% 精力投入 20% 关键异常流程。</p>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h4>「平行账本」设计</h4>
+        <p class="dim mt-s">库存变更双时序记录机制（物理时间 + 单据完成时间），解决结差异归因，支撑精准财务对账。</p>
+      </div>
+    </div>
+    <div class="notes">四套方法论是多年 WMS/SCM 实战中沉淀出来的。不是理论，是反复验证过的实践。</div>
+  </section>
+
+  <!-- 5. Project: ShipperGrid -->
+  <section class="slide" data-title="ShipperGrid">
+    <p class="kicker">Project 01 · 端点科技</p>
+    <h2 class="h2">ShipperGrid · 海外仓履约 SaaS</h2>
+    <p class="lede mb-l">2024.10 – 2026.4 · 产品经理 · 从内部支撑到外部商业化</p>
+    <div class="grid g2" style="align-items:start">
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h4>战略转型</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 主导业务线从内部服务支撑走向<b style="color:var(--accent)">外部商业化</b></li>
+          <li>— 从 0 到 1 规划覆盖用户、运营、仓储的<b style="color:var(--accent)">全链路产品体系</b></li>
+          <li>— 将三套系统打包为标准 SaaS，实现<b style="color:var(--accent)">产品化、平台化</b>转型</li>
+          <li>— 从 0 到 1 搭建<b style="color:var(--accent)">AI 辅助 PRD</b> 交付流程</li>
+        </ul>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h4>系统架构：ERP → 三大独立子系统</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— <b style="color:var(--text-1)">OMS</b>：面向客户，对接 Temu、Shein、妙手、马帮</li>
+          <li>— <b style="color:var(--text-1)">OMP</b>：面向运营，客户/仓库入驻、物流商对接、定价、履约监控</li>
+          <li>— <b style="color:var(--text-1)">WMS</b>：面向仓库，入库、出库、库存管理等库内作业</li>
+          <li>— 通过<b style="color:var(--text-1)">代理仓模式</b>承接内部业务，标准化输出</li>
+        </ul>
+      </div>
+    </div>
+    <div class="notes">这是最近也是最重要的项目。核心亮点：战略转型 + 系统拆分 + SaaS 化 + AI 赋能。</div>
+  </section>
+
+  <!-- 6. Project: 直行便 WMS -->
+  <section class="slide" data-title="直行便 WMS">
+    <p class="kicker">Project 02 · 直行便供应链</p>
+    <h2 class="h2">仓储全链路效能提升</h2>
+    <p class="lede mb-l">2022.06 – 2024.09 · WMS & TMS 产品经理 · 日本市场跨境电商</p>
+    <div class="grid g2" style="align-items:start">
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h4>方法：三管齐下</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 深入仓库<b style="color:var(--accent)">一线实操全流程</b>，定位断点和痛点</li>
+          <li>— <b style="color:var(--accent)">系统改造</b>：波次管理、库龄、拣货路径优化、越库、盘点</li>
+          <li>— <b style="color:var(--accent)">SOP 重构</b>：标准化作业流程</li>
+          <li>— <b style="color:var(--accent)">跨部门协同</b>：建立主动响应现场问题机制</li>
+        </ul>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h4>成果：数据说话</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 入库时效 <b style="color:var(--good)">缩短 50%</b></li>
+          <li>— 出库效能 <b style="color:var(--good)">提升 400%</b></li>
+          <li>— 单日峰值 <b style="color:var(--good)">400 单 → 2000 单</b></li>
+          <li>— 建立全链路溯源机制，全程可追溯</li>
+        </ul>
+      </div>
+    </div>
+    <div class="notes">这个项目展示了深入一线、系统性解决问题的能力。不是单一软件优化，而是系统+SOP+协同三管齐下。</div>
+  </section>
+
+  <!-- 7. Project: 促聚科技 SCM -->
+  <section class="slide" data-title="促聚科技">
+    <p class="kicker">Project 03 · 促聚科技</p>
+    <h2 class="h2">CJdropshipping · WMS + SCM 体系搭建</h2>
+    <p class="lede mb-l">2021.04 – 2022.06 · WMS / SCM 产品负责人 · 美国市场</p>
+    <div class="grid g2" style="align-items:start">
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h4>核心工作</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 完善 WMS 功能，推动仓内运作达到 <b style="color:var(--accent)">SOP 标准</b></li>
+          <li>— 建立<b style="color:var(--accent)">单仓及多仓数据监控</b>机制</li>
+          <li>— 完善全链路溯源机制，全程可追溯</li>
+          <li>— 从 0 到 1 搭建 <b style="color:var(--accent)">SCM 系统</b>，数据驱动采购决策</li>
+          <li>— 负责仓库业务组后端团队管理</li>
+        </ul>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h4>成果</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 仓内作业<b style="color:var(--good)">人效提升</b>，单均人工成本下降</li>
+          <li>— 日均 <b style="color:var(--good)">2W+</b>，24 小时出库达标率 <b style="color:var(--good)">85% → 99%+</b></li>
+          <li>— 风险发生率与商品纠纷率<b style="color:var(--good)">显著降低</b></li>
+          <li>— SCM 驱动采购成本<b style="color:var(--good)">降低</b>，库存周转率<b style="color:var(--good)">提升</b></li>
+          <li>— 线上问题处理时效<b style="color:var(--good)">显著提升</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="notes">这段经历展示了 SCM 从 0 到 1 搭建能力和团队管理能力。CJdropshipping 是跨境一件代发头部平台。</div>
+  </section>
+
+  <!-- 8. Project: 早稻科技 -->
+  <section class="slide" data-title="早稻科技">
+    <p class="kicker">Project 04 · 早稻科技</p>
+    <h2 class="h2">机蜜 · 支付宝小程序增长体系</h2>
+    <p class="lede mb-l">2017.04 – 2020.02 · 支付宝小程序事业部产品核心负责人</p>
+    <div class="grid g2" style="align-items:start">
+      <div class="card anim-fade-left" data-anim="fade-left">
+        <h4>核心工作</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 从 0 到 1 搭建支付宝小程序及多项创新业务</li>
+          <li>— 主动推动<b style="color:var(--accent)">商品系统重构</b>，维护成本<b style="color:var(--good)">下降 70%+</b></li>
+          <li>— 搭建<b style="color:var(--accent)">数据埋点体系 + ABtest</b> 机制</li>
+          <li>— 搭建<b style="color:var(--accent)">用户标签 + 会员体系 + 个性化推荐</b></li>
+          <li>— 主导订单、商品、采购、仓储、物流、财务等全链路模块</li>
+        </ul>
+      </div>
+      <div class="card anim-fade-right" data-anim="fade-right">
+        <h4>成果</h4>
+        <ul class="mt-m" style="list-style:none;padding:0;line-height:2;color:var(--text-2)">
+          <li>— 详情页到下单转化率 <b style="color:var(--good)">↑ 6%</b></li>
+          <li>— 用户活跃度 <b style="color:var(--good)">↑ 20%</b>，复购率 <b style="color:var(--good)">↑ 8%</b></li>
+          <li>— 收藏有礼：累计 <b style="color:var(--good)">28 次</b>支付宝小程序收藏榜<b style="color:var(--good)">前 10</b></li>
+          <li>— 累计收藏人数 <b style="color:var(--good)">184 万</b></li>
+          <li>— 优惠券核销率 <b style="color:var(--good)">↑ 3%</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="notes">早稻科技的经历展示了 C 端增长运营能力。184 万收藏量是非常亮眼的数据。</div>
+  </section>
+
+  <!-- 9. What I Bring -->
+  <section class="slide" data-title="和我合作">
+    <p class="kicker">Value · 和我合作</p>
+    <h2 class="h2">你会得到什么</h2>
+    <div class="steps anim-stagger-list" data-anim-target>
+      <div class="step"><div class="num">1</div><h4>结构化的需求文档</h4><p>标准化 14 章 PRD 结构，ER 建模、流程图、状态机一应俱全。边界条件、异常流程都写清楚，减少来回确认。</p></div>
+      <div class="step"><div class="num">2</div><h4>一线实操的方案</h4><p>每个方案都经过仓库一线验证。不是坐在办公室拍脑袋，而是深入现场找到真正的问题再给方案。</p></div>
+      <div class="step"><div class="num">3</div><h4>数据驱动的决策</h4><p>每个功能都回答「为什么做」和「做了之后怎样」。搭建埋点体系、ABtest 机制，用数据验证假设、指导迭代。</p></div>
+    </div>
+    <div class="notes">三个核心价值点：文档质量、一线经验、数据驱动。这是和我合作最直接的感受。</div>
+  </section>
+
+  <!-- 11. AI Skills -->
+  <section class="slide" data-title="AI 实践">
+    <p class="kicker">Learning · 最近在做的事</p>
+    <h2 class="h2">用 AI 重构产品交付流程</h2>
+    <p class="lede mb-l">深入学习 AI 辅助 PRD 快速交付，搭建 6 个 Skills 完成产品交付物闭环</p>
+    <div class="steps anim-stagger-list" style="grid-template-columns:repeat(6,1fr)" data-anim-target>
+      <div class="step"><div class="num">1</div><h4>头脑风暴</h4><p>根据点拓展成面，提供更加丰富的方案</p></div>
+      <div class="step"><div class="num">2</div><h4>产品 PRD</h4><p>以自身文档和方法论蒸馏，输出 PRD</p></div>
+      <div class="step"><div class="num">3</div><h4>需求评审</h4><p>以研发、测试、业务角色模拟评审</p></div>
+      <div class="step"><div class="num">4</div><h4>UI 设计</h4><p>根据设计规范生成设计文件</p></div>
+      <div class="step"><div class="num">5</div><h4>原型生成</h4><p>根据 PRD 和设计文件生成原型</p></div>
+      <div class="step"><div class="num">6</div><h4>自动标注</h4><p>根据 PRD 和原型完成需求标注</p></div>
+    </div>
+    <div class="notes">展示最近在 AI 赋能产品工作上的探索。6 个 Skills 形成从头脑风暴到标注的完整交付链路。</div>
+  </section>
+
+  <!-- 12. Thanks -->
+  <section class="slide center tc" data-title="谢谢">
+    <div>
+      <h1 class="h1 anim-fade-up" data-anim="fade-up" style="font-size:120px;line-height:1"><span class="gradient-text">Thanks</span></h1>
+      <p class="lede" style="margin:18px auto 0">逻辑驱动 · 数据支撑 · 客户导向 · 持续学习</p>
+      <div class="row mt-l" style="justify-content:center;gap:32px">
+        <div class="dim"><b>董剑铭（初九）</b> · 产品经理</div>
+        <div class="dim">杭州 · 8 年产品经验 · INTJ</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+(function(){
+  var base=document.body.getAttribute("data-theme-base")||"html-ppt/assets/themes/";
+  var themes=document.body.getAttribute("data-themes").split(",").map(function(s){return s.trim()}).filter(Boolean);
+  if(themes.length>1){
+    var last=sessionStorage.getItem("html-ppt-theme");
+    var pool=themes.filter(function(t){return t!==last});
+    var pick=pool[Math.floor(Math.random()*pool.length)];
+    sessionStorage.setItem("html-ppt-theme",pick);
+    document.documentElement.setAttribute("data-theme",pick);
+    var link=document.getElementById("theme-link");
+    if(link) link.href=base+pick+".css";
+    document.querySelectorAll(".dim2").forEach(function(el){el.textContent=pick});
+  }
+})();
+</script>
+<script src="html-ppt/assets/runtime.js"></script>
+<script>
+(function(){
+  /* touch swipe */
+  var tx0=0,ty0=0;
+  document.addEventListener('touchstart',function(e){tx0=e.changedTouches[0].clientX;ty0=e.changedTouches[0].clientY},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx0,dy=e.changedTouches[0].clientY-ty0;
+    if(Math.abs(dy)>50&&Math.abs(dy)>Math.abs(dx)){
+      document.dispatchEvent(new KeyboardEvent('keydown',{key:dy<0?'ArrowRight':'ArrowLeft',bubbles:true}));
+    }else if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
+      document.dispatchEvent(new KeyboardEvent('keydown',{key:dx<0?'ArrowRight':'ArrowLeft',bubbles:true}));
+    }
+  },{passive:true});
+
+  var pb=document.querySelector('.progress-bar');
+  if(pb) pb.style.display='none';
+  var slides=document.querySelectorAll('.slide');
+  var total=slides.length;
+  var t=document.createElement("div");
+  t.className="nav-toast";
+  var isMobile=window.innerWidth<=768;
+  t.innerHTML='<div class="fill"></div><div class="txt">'+(isMobile?'上下滑动翻页':'按 ← → 翻页')+'</div>';
+  document.body.appendChild(t);
+  var fill=t.querySelector('.fill');
+  function update(){
+    var cur=document.querySelector('.slide.is-active');
+    var idx=Array.prototype.indexOf.call(slides,cur);
+    fill.style.width=(idx<1?0:(idx/(total-1)*100))+'%';
+  }
+  update();
+  requestAnimationFrame(function(){t.classList.add("show")});
+  var deck=document.querySelector('.deck');
+  if(deck){new MutationObserver(update).observe(deck,{attributes:true,subtree:true,attributeFilter:['class']})}
+})();
+</script>
+</body></html>
